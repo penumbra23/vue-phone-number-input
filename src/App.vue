@@ -55,6 +55,7 @@
           <div class="component mb-2">
             <VuePhoneNumberInput
               id="phoneNumber1"
+              ref="phoneNum1"
               v-model="phoneNumber"
               color="dodgerblue"
               :dark="dark"
@@ -69,6 +70,9 @@
             />
             <b>v-model</b> : {{ phoneNumber }}
           </div>
+          <button @click="setManualCC">
+            SET MANUAL
+          </button>
 
           <div class="component">
             <h4 class="mb-2">
@@ -247,6 +251,9 @@
       }
     },
     methods: {
+      setManualCC() {
+        this.$refs.phoneNum1.setCountryCode('+387123')
+      },
       onUpdate (payload) {
         this.results = payload
       },
